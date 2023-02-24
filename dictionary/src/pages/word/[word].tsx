@@ -42,60 +42,74 @@ const Word = () => {
             sources={[]}
         />
 
-        <div className="m-0 absolute pt-3 pr-4 pb-12 pl-11 right-0 top-[31px] w-[calc(100vw-208px)]">
+        <main className="m-0 absolute pt-3 pr-4 pb-12 pl-11 right-0 top-[31px] w-[calc(100vw-208px)]">
         
             {/* Search bar */}
             <Search />
 
             {/* Title */}
-            <div className="mt-8 flex justify-start">
-                <h1 className="text-xl font-bold">{ word }</h1>
+            <h1 className="mt-8 flex justify-start text-xl font-bold">
+                { word }
                 <Clipboard className="my-auto ml-2 w-4 h-4 text-gray-500" />
-            </div>
+            </h1>
 
             {/* Definition */}
-            <div id="definition" className="flex justify-start mt-6">
-                <Minus className="my-auto h-4 w-4 mr-2" />
-                <h2 className="text-lg font-bold">Definition</h2>
-            </div>
-            <div className="w-[calc(100vw-292px)] ml-6 border-t border-gray-300 mt-2 pt-2">
-                <p className="font-serif">definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition </p>
-            </div>
+            <section id="definition" className="mt-6 flex justify-start">    
+                <div className="h-7 w-6 flex">
+                    <Minus className="m-auto h-4 w-4" />
+                </div>
+
+                <article className="block w-full h-full">
+                    <div className="h-7 flex">
+                        <h2 className="text-lg my-auto font-bold">Definition</h2>
+                    </div>
+
+                    <hr className="my-2" />
+
+                    <p className="font-serif">
+                        definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition
+                    </p>
+                </article>
+            </section>
 
             {/* Synonyms */}
-            <div id="synonyms" className="flex justify-start mt-6">
-                <Minus className="my-auto h-4 w-4 mr-2" />
-                <h2 className="text-lg font-bold">Synonyms</h2>
-            </div>
-            <div className="w-[calc(100vw-292px)] ml-6 border-t border-gray-300 mt-2 pt-2">
-                <ul className="list-disc list-inside">
-                    <li className="font-serif">synonym</li>
-                    <li className="font-serif">synonym</li>
-                    <li className="font-serif">synonym</li>
-                    <li className="font-serif">synonym</li>
-                    <li className="font-serif">synonym</li>
-                    <li className="font-serif">synonym</li>
-                    <li className="font-serif">synonym</li>
-                </ul>
-            </div>
+            <section id="synonyms" className="mt-6 flex justify-start">    
+                <div className="h-7 w-6 flex">
+                    <Minus className="m-auto h-4 w-4" />
+                </div>
+
+                <article className="w-full h-full">
+                    <div className="h-7 flex">
+                        <h2 className="text-lg my-auto font-bold">Synonyms</h2>
+                    </div>
+
+                    <hr className="my-2" />
+
+                    <p className="font-serif">
+                        definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition
+                    </p>
+                </article>
+            </section>
 
             {/* Usage examples */}
-            <div id="examples" className="flex justify-start mt-6">
-                <Minus className="my-auto h-4 w-4 mr-2" />
-                <h2 className="text-lg font-bold">Examples</h2>
-            </div>
-            <div className="w-[calc(100vw-292px)] ml-6 border-t border-gray-300 mt-2 pt-2">
-                <ul className="list-inside list-disc">
-                    <li className="font-serif">synonym</li>
-                    <li className="font-serif">synonym</li>
-                    <li className="font-serif">synonym</li>
-                    <li className="font-serif">synonym</li>
-                    <li className="font-serif">synonym</li>
-                    <li className="font-serif">synonym</li>
-                    <li className="font-serif">synonym</li>
-                </ul>
-            </div>
-        </div>
+             <section id="examples" className="mt-6 flex justify-start">    
+                <div className="h-7 w-6 flex">
+                    <Minus className="m-auto h-4 w-4" />
+                </div>
+
+                <article className="w-full h-full">
+                    <div className="h-7 flex">
+                        <h2 className="text-lg my-auto font-bold">Examples</h2>
+                    </div>
+
+                    <hr className="my-2" />
+
+                    <p className="font-serif">
+                        definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition definition
+                    </p>
+                </article>
+            </section>
+        </main>
     </>
 }
 
