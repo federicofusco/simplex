@@ -22,7 +22,7 @@ interface HeaderProps {
 }
 
 const Header = ({ displayLogo }: HeaderProps ) => { 
-    return <div className="w-screen border-b border-gray-300 h-[31px] flex justify-between">
+    return <div className="fixed top-0 z-[1000] bg-white w-screen border-b border-gray-300 h-[31px] flex justify-between">
 
         {/* Displays the logo */}
         { displayLogo && <HeaderItem>
