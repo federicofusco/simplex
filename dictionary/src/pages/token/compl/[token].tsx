@@ -16,10 +16,24 @@ const Word = () => {
     return <>
         <Sidebar 
             word={ token }
+            links={[
+                {
+                    text: "Definition",
+                    href: "#definition",
+                },
+                {
+                    text: "Synonyms",
+                    href: "#synonyms",
+                },
+                {
+                    text: "Examples",
+                    href: "#examples",
+                }
+            ]}
             sources={[]}
         />
 
-        <main className="m-0 absolute pt-3 pr-4 pb-12 pl-11 right-0 top-[31px] w-[calc(100vw-208px)]">
+        <main className="m-0 absolute pt-3  px-4 sm:pr-4 pb-12 sm:pl-11 sm:right-0 top-[31px] w-full sm:w-[calc(100vw-208px)]">
         
             {/* Search bar */}
             <Search />
