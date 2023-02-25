@@ -9,10 +9,11 @@ interface HeaderItemProps {
     displayBorder?: boolean,
     left?: boolean,
     right?: boolean,
+    disablePadding?: boolean,
 }
 
-const HeaderItem = ({ children, displayBorder, left, right, className }: HeaderItemProps ) => {
-    return <div className={`${className ? className : ""} ${displayBorder ? "border-x" : ""} ${left ? "border-l" : ""} ${right ? "border-r" : ""} border-gray-300 py-1 w-min px-2 h-[31px] flex`}>
+const HeaderItem = ({ children, displayBorder, left, right, className, disablePadding }: HeaderItemProps ) => {
+    return <div className={`${className ? className : ""} ${displayBorder ? "border-x" : ""} ${left ? "border-l" : ""} ${right ? "border-r" : ""} border-gray-300 ${disablePadding ? "" : "py-1 px-2"} w-min h-[31px] flex`}>
         { children }
     </div>
 }
@@ -37,14 +38,14 @@ const Header = ({ displayLogo }: HeaderProps ) => {
 
         <div className="flex justify-end">
             {/* Displays quick links */}
-            <HeaderItem left>
+            <HeaderItem left disablePadding>
                 <HeaderDropdown 
                     current="Dictionary"
                     options={[
                         ["Translator", "/translator"],
                         ["Iliad", "/iliad"],
                         ["Aeneide", "/aeneide"],
-                        ["The Divine Commedy", "/comedy"],
+                        ["Oddesey", "/comedy"],
                     ]}
                 />
             </HeaderItem>
