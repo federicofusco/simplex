@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { Minus, Plus } from "react-feather";
 
 interface BlockProps {
@@ -7,19 +7,22 @@ interface BlockProps {
 }
 
 const Block = ({ title, children }: BlockProps ) => {
+    const [expanded, setExpanded] = useState<boolean> ( true );
+    const toggleExpanded = () => setExpanded ( !expanded );
+
     return <section id={ title.toLowerCase () } className="mt-6 flex justify-start">    
-        <div className="h-7 w-6 flex">
-            <Minus className="m-auto h-4 w-4" />
-        </div>
+        <button onClick={ toggleExpanded } className="h-7 w-6 flex">
+            {expanded ? <Minus className="m-auto h-4 w-4" /> : <Plus className="m-auto h-4 w-4" />}
+        </button>
 
         <article className="block w-full h-full">
-            <div className="h-7 flex">
-                <h2 className="text-lg my-auto font-bold">{ title }</h2>
-            </div>
+            <button onClick={ toggleExpanded } className="h-7 flex">
+                { expanded && <h2 className="text-lg my-auto font-bold">{ title }</h2> }
+                { !expanded && <span className="my-auto ml-2 text-md text-gray-400">Expand { title.toLowerCase () }</span> }
+            </button>
 
-            <hr className="my-2" />
-
-            { children }
+            { expanded && <hr className="my-2" /> } 
+            { expanded && children }
         </article>
     </section>
 }
