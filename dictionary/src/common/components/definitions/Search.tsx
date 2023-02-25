@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useCallback, useRef } from "react";
-import { HelpCircle, Settings } from "react-feather";
+// import { HelpCircle, Settings } from "react-feather";
 
 interface SearchButtonProps {
     icon: ReactNode,
