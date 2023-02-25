@@ -7,10 +7,16 @@ interface TitleProps {
 }
 
 const Title = ({ title, source }: TitleProps ) => {
+
+    const copyToClipboard = ( text: string ) => navigator.clipboard.writeText ( text );
+
     return <div className="flex justify-between mt-8">
         <h1 className="flex justify-start text-xl font-bold">
             { title }
-            <Clipboard className="my-auto ml-2 w-4 h-4 text-gray-500" />
+
+            <button onClick={() => copyToClipboard ( title ) } className="my-auto ml-2">
+                <Clipboard className="text-gray-500 w-4 h-4" />
+            </button>
         </h1>
     
         { source && <span>
