@@ -1,9 +1,12 @@
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
 import Logo from "@/common/components/navigation/Logo";
 import HeaderSearchBar from "@/common/components/header/HeaderSearchBar";
 import HeaderDropdown from "@/common/components/header/HeaderDropdown";
+import SidebarButton from "@/common/components/header/SidebarButton";
+import Sidebar from "@/common/components/header/Sidebar";
+import NavigationContext from "@/common/lib/contexts/navigation";
 
-interface HeaderItemProps {
+export interface HeaderItemProps {
     children: ReactNode,
     className?: string,
     displayBorder?: boolean,
@@ -23,39 +26,54 @@ interface HeaderProps {
 }
 
 const Header = ({ displayLogo }: HeaderProps ) => { 
-    return <div className="fixed top-0 z-[1000] bg-white w-screen border-b border-gray-300 h-[31px] flex justify-between">
+    const navigation = useContext ( NavigationContext );
 
-        {/* Displays the logo */}
-        { displayLogo && <HeaderItem>
-                <Logo 
-                    className="my-auto"
-                    link
-                    height={ 18 }
-                    width={ 18 } 
-                />
-            </HeaderItem> 
-        }
+    return <>
+        <div className="fixed top-0 z-[1000] bg-white w-screen border-b border-gray-300 h-[31px] flex justify-between">
 
-        <div className="flex justify-end">
-            {/* Displays quick links */}
-            <HeaderItem left disablePadding>
-                <HeaderDropdown 
-                    current="Dictionary"
-                    options={[
-                        ["Translator", "/translator"],
-                        ["Iliad", "/iliad"],
-                        ["Aeneide", "/aeneide"],
-                        ["Oddesey", "/comedy"],
-                    ]}
-                />
-            </HeaderItem>
+            {/* Displays the logo */}
+            { displayLogo && <HeaderItem>
+                    <Logo 
+                        className="my-auto"
+                        link
+                        height={ 18 }
+                        width={ 18 } 
+                    />
+                </HeaderItem> 
+            }
 
-            {/* Displays the search bar */}
-            <HeaderItem left className="hidden sm:flex">
-                <HeaderSearchBar />
-            </HeaderItem>
+            <div className="flex justify-end">
+                { navigation.sidebar && <HeaderItem left className="flex sm:hidden">
+                    <SidebarButton />
+                </HeaderItem> }
+
+                {/* Displays quick links */}
+                <HeaderItem left disablePadding>
+                    <HeaderDropdown 
+                        current="Dictionary"
+                        options={[
+                            ["Translator", "/translator"],
+                            ["Iliad", "/iliad"],
+                            ["Aeneide", "/aeneide"],
+                            ["Oddesey", "/comedy"],
+                        ]}
+                    />
+                </HeaderItem>
+
+                {/* Displays the search bar */}
+                <HeaderItem left className="hidden sm:flex">
+                    <HeaderSearchBar />
+                </HeaderItem>
+            </div>
         </div>
-    </div>
+
+        { navigation.sidebar && <Sidebar 
+            title={ navigation.sidebar.title }
+            links={ navigation.sidebar.links }
+            sources={ navigation.sidebar.sources }
+            force_visible={ navigation.sidebar.force_visible }
+        /> }
+    </>
 }
 
 export default Header;
