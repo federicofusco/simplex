@@ -1,7 +1,7 @@
 import { ReactNode, useState } from "react";
 import { Minus, Plus } from "react-feather";
 
-interface BlockProps {
+export interface BlockProps {
     title: string,
     children: ReactNode,
 }

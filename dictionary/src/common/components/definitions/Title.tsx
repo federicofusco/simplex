@@ -1,7 +1,7 @@
 import { Clipboard } from "react-feather";
 import Link from "next/link";
 
-interface TitleProps {
+export interface TitleProps {
     title: string,
     source?: string,
 }

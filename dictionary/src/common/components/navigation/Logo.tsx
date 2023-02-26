@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "@/../public/images/logo.svg";
 
-interface LogoProps {
+export interface LogoProps {
     height?: number,
     width?: number,
     className?: string,

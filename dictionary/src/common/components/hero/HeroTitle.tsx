@@ -1,6 +1,6 @@
 import Logo from "../navigation/Logo";
 
-interface HeroTitleProps {
+export interface HeroTitleProps {
     title: string,
 }
 

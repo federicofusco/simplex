@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Link from "next/link";
 
-interface HeaderDropdownProps {
+export interface HeaderDropdownProps {
     current: string,
     options: [string, string][],
 }
